@@ -88,37 +88,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// TILE TITLE SCRIPT
+// Implement front page tile animation
 document.addEventListener('DOMContentLoaded', function() {
-    const chars = "ABCDEFGGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
     const rows = 6;
     const cols = 10;
     const grid = document.getElementById('tile-grid');
     
-    // Clear any existing content
+    // Make sure grid exists and is positioned correctly
+    if (!grid) return;
+    
     grid.innerHTML = '';
     
-    // Create tiles directly in the grid container
+    // Create tiles with initial transparent state
+    const tiles = [];
     for (let i = 0; i < rows * cols; i++) {
         const tile = document.createElement('div');
         tile.className = 'tile';
-        const randomChar = chars[Math.floor(Math.random() * chars.length)];
-        tile.setAttribute('data-char', randomChar);
-        
-        tile.addEventListener('mouseenter', function() {
-            this.style.background = '#fff';
-            this.style.transform = 'scale(1.2)';
-            this.style.zIndex = '30';
-            const newChar = chars[Math.floor(Math.random() * chars.length)];
-            this.setAttribute('data-char', newChar);
-        });
-        
-        tile.addEventListener('mouseleave', function() {
-            this.style.background = '#000';
-            this.style.transform = 'scale(1)';
-            this.style.zIndex = '1';
-        });
-        
+        tile.style.opacity = '0'; // Start invisible
+        tile.style.pointerEvents = 'none'; // Allow clicks to pass through
         grid.appendChild(tile);
+        tiles.push(tile);
     }
+
+    // Add hover effect only to visible tiles
+    function addHoverEffect(tile) {
+        tile.addEventListener('mouseenter', () => {
+            tile.style.transform = 'scale(1)';
+            tile.style.opacity = '1';
+            tile.style.transition = 'all 0.3s ease';
+        });
+        tile.addEventListener('mouseleave', () => {
+            tile.style.transform = 'scale(0)';
+            tile.style.opacity = '0';
+            tile.style.transition = 'all 1s ease';
+        });
+    }
+
+    // Animate tiles with slower, more controlled fade
+    const shuffledTiles = [...tiles].sort(() => Math.random() - 0.5);
+    
+    shuffledTiles.forEach((tile, index) => {
+        const delay = index * 100 + Math.random() * 500; // Slower appearance
+        setTimeout(() => {
+            tile.style.transform = 'scale(0)';
+            tile.style.opacity = '0';
+            tile.style.transition = 'transform 1.5s ease, opacity 2s ease';
+            addHoverEffect(tile);
+        }, delay);
+    });
 });
