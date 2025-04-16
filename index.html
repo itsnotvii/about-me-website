@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+   <link rel="icon" href="J.png" type="image/png" />
+
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Thomas Johnson | Portfolio</title>
+   <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+   <header> 
+      <div class="logo-container">
+         <img src="J.png" alt="Logo" class="logo">
+         <div class="logo-text">Thomas Johnson</div>
+      </div>
+      <nav>
+         <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+         </ul>
+      </nav>
+   </header>
+
+    <section class="hero" id="home">
+        <div class="tile-container" id="tile-grid"></div>
+        <div class="hero-text">
+            <h1>THOMAS JOHNSON</h1>
+            <p>SOFTWARE ENGINEER</p>
+        </div>
+        <a href="#projects" class="btn">EXPLORE WORK</a>
+    </section>
+
+   <section class="projects" id="projects">
+      <h2>My Projects</h2>
+   
+      <div class="project-list">
+         
+         <!-- Bakery Management Project -->
+         <div class="project-item">
+            <h3>Efficient Data Management System</h3>
+               <div class="project-logos">
+                  <span class="tooltip-wrapper" data-tooltip="Java">
+                     <img src="images/newjava.png" alt="Java Logo">
+                  </span>
+
+                  <span class="tooltip-wrapper" data-tooltip="Eclipse IDE">
+                     <img src="images/eclipse.png" alt="Eclipse Logo">
+                  </span>
+
+                  <span class="tooltip-wrapper" data-tooltip="VS Code">
+                     <img src="images/vscode.png" alt="VS Code Logo">
+                  </span>
+
+                  <span class="tooltip-wrapper" data-tooltip="GitHub">
+                     <img src="images/github.png" alt="Github logo" />
+                  </span>
+               </div>
+            <ul>
+               <li>Efficient Data Structure: Utilizes binary search trees (BST) and hash maps for quick lookups and inventory management.</li>
+               <li>Unique Item Identification: Each bakery product is assigned a unique ISBN-style ID for easy tracking.</li>
+               <li>User Access Levels:
+                  <ul>
+                     <li>Guest: Browse menu and view products, and can place orders as a guest.</li>
+                     <li>Customer: Similar to guest, but can track order history.</li>
+                     <li>Employee: Manage inventory, update product details, and process orders.</li>
+                     <li>Manager: Full control, including order management, employee management, and stock monitoring.</li>
+                  </ul>
+               </li>
+               <li>Streamlined Operations: Optimized for smooth, efficient management of bakery data from front-end to back-end.</li>
+            </ul>
+         </div>
+   
+         <!-- Personal Portfolio Website Project -->
+         <div class="project-item">
+            <h3>The website!</h3>
+               <div class="project-logos">
+                  <span class="tooltip-wrapper" data-tooltip="HTML">
+                     <img src="images/endhtml.png" alt="html logo">
+                  </span>
+
+                  <span class="tooltip-wrapper" data-tooltip="CSS">
+                     <img src="images/nextcss.png" alt="css logo">
+                  </span>
+
+                  <span class="tooltip-wrapper" data-tooltip="JavaScript">
+                     <img src="images/javascript.png" alt="javascript logo">
+                  </span>
+
+                  <span class="tooltip-wrapper" data-tooltip="VS Code">
+                     <img src="images/vscode.png" alt="VS Code Logo">
+                  </span>
+
+                  <span class="tooltip-wrapper" data-tooltip="GitHub">
+                     <img src="images/github.png" alt="Github logo" />
+                  </span>
+               </div>
+            <ul>
+               <li>A sleek, and well-designed website to showcase myself, and my work. Feel free to drop suggestions, or contact me in the contact section below!</li>
+               <li>Implemented a clean HTML backbone, and crafted an organized CSS overlay, with the use of effective JavaScript.</li>
+            </ul>
+         </div>
+   
+      </div> 
+   </section>
+   
+
+   <section class="about" id="about">
+      <h2>About Me</h2>
+      <div class="about-container">
+         <div class="about-image">
+            <img src="images/IMG_8842.png" alt="Thomas Johnson" />
+         </div>
+         <div class="about-text-wrapper">
+            <div class="about-text">
+                <p>My name is Thomas Johnson, born and raised in Kobe, Japan. I developed a passion for electronics and computers at an early age. In 2015, I moved to the United States to pursue my education.</p>
+                
+                <p>After completing high school, I enrolled at De Anza Community College to study Computer Science. I'm now continuing my journey at San Jose State University, majoring in Software Engineering.</p>
+                
+                <p>I'm a passionate problem-solver, always eager to create innovative solutions. Whether through coding, design, or creative thinking, I'm motivated to make a positive impact through technology.</p>
+            </div>
+         </div>
+      </div>
+   </section>
+   
+
+   <section class="contact" id="contact">
+      <h2>Contact</h2>
+      <p>Let’s build something together! Shoot me a message below or find me on my socials! 
+         I will try to respond as quick as possible!
+      </p>
+      <form id="contact-form">
+         <input type="text" id="name" placeholder="Your Name" required />
+         <input type="email" id="email" placeholder="Your Email" required />
+         <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+         <button type="submit" class="btn">Message Me!</button>
+      </form>
+
+      <h3 style="margin-top: 2rem; text-align: center;">Click me!</h3>
+      <div class="social-logos">
+         <a href="https://github.com/itsnotvii" target="_blank">
+            <span class="tooltip-wrapper" data-tooltip="GitHub">
+               <img src="images/github.png" alt="Github logo" />
+            </span>
+         </a>
+         <a href="https://www.linkedin.com/in/thomas-johnson-821603327/" target="_blank">
+            <span class="tooltip-wrapper" data-tooltip="LinkedIn">
+               <img src="images/endlinkedin.png" alt="LinkedIn logo"/>
+            </span>
+         </a>
+         <a href="https://www.instagram.com/tomtom_lowell/" target="_blank">
+            <span class="tooltip-wrapper" data-tooltip="Instagram">
+               <img src="images/instagram.png" alt="Instagram logo"/>
+            </span>
+         </a>
+      </div>
+   </section>
+
+  
+
+   <footer>
+      &copy; 2025 Thomas Johnson. Forged from the ground up.
+   </footer>
+ 
+   <script src="script.js"></script>
+</body>
+</html>
