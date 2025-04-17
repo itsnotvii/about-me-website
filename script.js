@@ -88,22 +88,51 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Implement front page tile animation
+// Implement front-page tile animation
 document.addEventListener('DOMContentLoaded', function() {
     const grid = document.getElementById('tile-grid');
-    const rows = 6;
+    const rows = 15;
     const cols = 10;
+    let revealedTiles = 0;
+    const totalTiles = rows * cols;
     
-    // Create all tiles at once
-    for (let i = 0; i < rows * cols; i++) {
+    for (let i = 0; i < totalTiles; i++) {
         const tile = document.createElement('div');
         tile.className = 'tile';
-        tile.style.opacity = '0'; // Start invisible
-        grid.appendChild(tile);
-        
-        // Fade in with random delay
-        setTimeout(() => {
-            tile.style.opacity = '1';
-        }, Math.random() * 1000);
+      
+        const row = Math.floor(i / cols);
+        const col = i % cols;
+        const delay = (row * 0.05) + (col * 0.02);
+      
+        tile.style.transitionDelay = `${delay}s`;
+  
+        tile.addEventListener('mouseover', function() {
+        if (!this.classList.contains('revealed')) {
+            this.classList.add('revealed');
+            revealedTiles++;
+          
+            if (revealedTiles === totalTiles) {
+                grid.classList.add('revealed');
+            }
+        }
+        });
+
+      grid.appendChild(tile);
     }
-});
+
+    setTimeout(() => {
+      if (revealedTiles === 0) {
+        const tiles = document.querySelectorAll('.tile');
+        tiles.forEach((tile, index) => {
+            setTimeout(() => {
+            tile.classList.add('revealed');
+            if (index === tiles.length - 1) {
+              grid.classList.add('revealed');
+            }
+          }, index * 20);
+        });
+      }
+    }, 5000);
+  });
+
+  
